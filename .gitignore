@@ -1,0 +1,6 @@
+.DS_Store
+ml-25m/
+TMDB_movie_dataset_v11.csv
+*.csv
+*.dat
+__pycache__/
