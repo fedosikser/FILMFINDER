@@ -249,27 +249,7 @@ bool parseRecord(const string& line, uint& id) {
 
     return true;
 }
-void GetUserDat(bool signToDevelop) {
-    //UserID::Gender::Age::Occupation::Zip-code
-    ifstream file("users.dat");
-    uint userId;
-    bool gender;
-    uint8_t age;
-    uint8_t occupation;
-    string s;
-    while (getline(file, s)) {
-        userId=0;
-        if (!parseRecord(s,userId))
-        cout << "!!!!!Users.dat/Error parsing record: " << s << endl, exit(0);
 
-        users[userId] = User(userId);
-
-    } file.close();
-    if (signToDevelop) {
-    cout << "\nUsers.dat/Loaded " << users.size() << " users.";
-    cout << " Last loaded user: " << userId << " || " << users[userId].getId() << endl;
-    }
-}
 
 bool parseRecord(const string& line, uint& id, string& title, string& genres) {
     size_t pos = 0;
@@ -323,8 +303,6 @@ void GetData(bool signToDevelop=0) {
     users.resize(6100);
     movies.resize(4000);
 
-    
-    GetUserDat(signToDevelop);
     GetMovieDat(signToDevelop);
     GetRatingDat(signToDevelop);
 }
